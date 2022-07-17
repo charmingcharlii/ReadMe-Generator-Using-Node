@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 var inquirer = require('inquirer');
 const fs = require('fs');
-const imports = require('./utils.generateMarkdown')
+// const imports = require('./generateMarkdown')
 const process = require('process')
 // const Choices = require('inquirer/lib/objects/choices');
 
@@ -69,7 +69,7 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    console.log(questions)
+    // console.log(questions)
 }
 //     .then((answers) => fs.writeToFile)
 // }
