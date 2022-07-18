@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 var inquirer = require('inquirer');
 const fs = require('fs');
-// const imports = require('./generateMarkdown')
+const imports = require('./utils/generateMarkdown')
+// import generateMarkdown from 'genegenerateMarkdown.js'
 const process = require('process')
 // const Choices = require('inquirer/lib/objects/choices');
 
@@ -17,7 +18,7 @@ const questions = [
     },
     {
         type: 'input',
-        question: 'Add installtion instructions.',
+        question: 'Add installation instructions.',
     },
     {
         type: 'input',
@@ -57,19 +58,20 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile("ReadMe.md", 'string', (err) => {
+    promtUser()
+    .then ((data) => fs.writeFile("ReadMe.md", RMContent, (err) => {
         if (err){
             console.log(err)
         } else {
             console.log('Success')
         }
-    }).then.path.join(data).process.cwd(fileName)
+    })).then.path.join(data).process.cwd(fileName)
 }
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions)
-    // console.log(questions)
+  inquirer.prompt(questions).then.writeToFile()
+   
 }
 //     .then((answers) => fs.writeToFile)
 // }

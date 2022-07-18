@@ -9,7 +9,21 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  if (license !== choices) {
+  if (license === 'Public domain') {
+    return `!['public domain license'](https://img.shields.io/badge/license-Public%20Domain-blue)`
+  }
+  if (license === 'Permissive') {
+    return `!['public domain license'](https://img.shields.io/badge/license-Permissive-yellow)`
+  }
+  if (license === 'LGPL') {
+    return `!['public domain license'](https://img.shields.io/badge/license-LGPL-blue)`
+  }
+  if (license === 'Copyleft') {
+    return `!['public domain license'](https://img.shields.io/badge/license-Copyleft-orange)`
+  }
+  if (license === 'Proprietary') {
+    return `!['public domain license'](https://img.shields.io/badge/license-Proprietary-blueviolet)`
+  } else {
     return " "
   } 
 }
@@ -17,7 +31,9 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (license !== choices) {
+  if (license === choices) {
+    return `# ${license.choices}`
+  } else {
     return " "
   }
 }
@@ -25,7 +41,16 @@ function renderLicenseSection(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-
+  # ${data.description}
+  # ${data.instructions}
+  # ${data.usage}
+  # ${data.contribution}
+  # ${data.test}
+  # ${data.license}
+  # ${data.GitHubUsername}
+  # ${data.GitHubProfile}
+  # ${data.email}
+  # ${data.contact}
 `;
 }
 
