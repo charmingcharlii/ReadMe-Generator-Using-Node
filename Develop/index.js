@@ -3,7 +3,7 @@ var inquirer = require('inquirer');
 const fs = require('fs');
 const imports = require('./utils/generateMarkdown')
 // import generateMarkdown from 'genegenerateMarkdown.js'
-const process = require('process')
+// const process = require('process')
 // const Choices = require('inquirer/lib/objects/choices');
 
 // TODO: Create an array of questions for user input
@@ -58,20 +58,19 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    promtUser()
-    .then ((data) => fs.writeFile("ReadMe.md", RMContent, (err) => {
-        if (err){
-            console.log(err)
-        } else {
-            console.log('Success')
-        }
-    })).then.path.join(data).process.cwd(fileName)
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data)
 }
 
 // TODO: Create a function to initialize app
 function init() {
-  inquirer.prompt(questions).then.writeToFile()
-   
+    // console.log(questions)
+    inquirer.prompt(questions)
+    // .then((data) => {
+        
+    //     console.log("Success")
+    //     writeToFile("ReadMe.md", imports({ data }))
+    // })
+
 }
 //     .then((answers) => fs.writeToFile)
 // }
