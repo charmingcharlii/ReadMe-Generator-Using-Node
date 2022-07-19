@@ -2,6 +2,7 @@
 var inquirer = require('inquirer');
 const fs = require('fs');
 const imports = require('./utils/generateMarkdown')
+const path = require('path')
 // import generateMarkdown from 'genegenerateMarkdown.js'
 // const process = require('process')
 // const Choices = require('inquirer/lib/objects/choices');
@@ -10,49 +11,60 @@ const imports = require('./utils/generateMarkdown')
 const questions = [
     {
         type: 'input',
-        question: 'What would you like the title to be?',
+        message: 'What would you like the title to be?',
+        name: 'title',
     },
     {
         type: 'input',
-        question: 'Add a description.',
+        message: 'Add a description.',
+        name: 'desc',
     },
     {
         type: 'input',
-        question: 'Add installation instructions.',
+        message: 'Add installation instructions.',
+        name: 'install'
     },
     {
         type: 'input',
-        question: 'Add usage information.',
+        message: 'Add usage information.',
+        name: 'info',
     },
     {
         type: 'input',
-        question: 'Add contribution guidelines.',
+        message: 'Add contribution guidelines.',
+        name: 'contri',
     },
     {
         type: 'input',
-        question: 'Add test instructions.',
+        message: 'Add test instructions.',
+        name: 'test',
     },
     {
         // switch statement
         type: 'checkbox',
-        question: 'Pick a license.',
+        message: 'Pick a license.',
         choices: ['Public domain', 'Permissive', 'LGPL', 'Copyleft', 'Proprietary'],
+        name: 'license',
     },
     {
         type: 'input',
-        question: 'What is your GitHub Username?',
+        message: 'What is your GitHub Username?',
+        name: 'user',
     },
     {
         type: 'input',
-        question: 'Add the link to your GitHub profile.',
+        message: 'Add the link to your GitHub profile.',
+        name: 'profile',
     },
     {
         type: 'input',
-        question: 'Add your email.',
+        message: 'Add your email.',
+        name: 'email',
     },
     {
         type: 'input',
-        question: 'Describe the best way to get in contact with you.',
+        message: 'Describe the best way to get in contact with you.',
+        name: 'contact',
     },
 ];
 
@@ -63,17 +75,15 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    // console.log(questions)
     inquirer.prompt(questions)
-    // .then((data) => {
-        
-    //     console.log("Success")
-    //     writeToFile("ReadMe.md", imports({ data }))
-    // })
+    .then((answers) => {
+        console.log("Success")
+        const mark = imports(answers)
+        writeToFile("ReadMe.md", mark)
+    })
+    // .then((answers) => fs.writeToFile)
 
 }
-//     .then((answers) => fs.writeToFile)
-// }
-
 // Function call to initialize app
 init();
+// console.log(answers)
