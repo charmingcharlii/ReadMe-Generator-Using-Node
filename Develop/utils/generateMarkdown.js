@@ -2,7 +2,8 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license === 'Public domain') {
-    return `Public Domain License Badge(https://img.shields.io/badge/license-Public%20Domain-blue)`
+    console.log('fred')
+    return `![Public Domain License Badge](https://img.shields.io/badge/license-Public%20Domain-blue.svg)`
   }
   // if (license === 'Permissive') {
   //   return `![Permissive License Badge](https://img.shields.io/badge/license-Permissive-yellow)`
@@ -16,7 +17,7 @@ function renderLicenseBadge(license) {
   // if (license === 'Proprietary') {
   //   return `![Proprietary License Badge](https://img.shields.io/badge/license-Proprietary-blueviolet)`
   // } else {
-  //   return " "
+    // return " "
   // } 
 }
 
@@ -24,7 +25,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === 'Public domain') {
-    return `![Public Domain License Badge](https://img.shields.io/badge/license-Public%20Domain-blue)`
+    return `[Public Domain License Badge](https://img.shields.io/badge/license-Public%20Domain-blue.svg)`
     // return `[Public Domain](https://wiki.creativecommons.org/wiki/public_domain)`
   }
 //   if (license === 'Permissive') {
@@ -47,12 +48,16 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
+  
   if (license === 'Public domain' ||  'Permissive' || 'LGPL' || 'Copyleft' || 'Proprietary') {
-    appendChild.renderLicenseBadge(renderLicenseLink)
+    generateMarkdown(renderLicenseBadge, renderLicenseLink)
+
   } else {
     return " "
   }
 }
+
+renderLicenseSection()
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -68,7 +73,6 @@ function generateMarkdown(data) {
   ${data.contribution}
   ## Test Instructions
   ${data.test}
-
   ## GitHub Username 
   ${data.user}
   ## GitHub Profile 

@@ -1,21 +1,24 @@
-# undefined
+# ReadMe Generator
 
   ## Project Description
-  undefined
+  This product is intended to help make quick and easy ReadMe.md files for any future projects. This includes sections for licensing, contribution, and testing as well. 
+
   ## Installation Instructions  
-  undefined
+  Node.JS installation
+
   ## Usage Information
-  undefined
-  ## Contribution Guidelines
-  undefined
-  ## Test Instructions
-  undefined
+  Video describing how to use:
+
+  https://drive.google.com/file/d/1MT0E-jYIznbV_VR1E_Nt3FrKDYrNIld1/view 
 
   ## GitHub Username 
-  undefined
+  VictoriaDunlap
+
   ## GitHub Profile 
-  undefined
+  https://github.com/VictoriaDunlap
+
   ## Email
-  undefined
+  victoriacdunlap@gmail.com
+
   ## Other Contact Information 
-  undefined 
+  email is prefered
